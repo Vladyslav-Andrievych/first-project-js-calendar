@@ -1,0 +1,14 @@
+// стили боковой временной шкалы
+.time-slot {
+  position: relative;
+  width: 48px;
+  height: 60px;
+  text-align: right;
+
+  &__time {
+    position: relative;
+    top: -12px;
+    font-size: 14px;
+    color: $text-color-primary;
+  }
+}

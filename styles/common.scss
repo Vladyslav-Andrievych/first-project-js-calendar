@@ -1,0 +1,61 @@
+.button {
+  height: 40px;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  background-color: $background-color-primary;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.icon-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    background: $background-color-primary;
+    padding: 16px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $background-color-overlay;
+  z-index: 10;
+}
+
+.popup {
+  &__content {
+    position: absolute;
+    background: $background-color-primary;
+    padding: 16px;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+  }
+}
+
+.delete-event-btn {
+  border: none;
+  background-color: $background-color-primary;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
