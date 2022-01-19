@@ -5,6 +5,7 @@ import { getItem, setItem } from '../common/storage.js';
 import { renderWeek } from '../calendar/calendar.js';
 import { renderHeader } from '../calendar/header.js';
 import { getStartOfWeek, getDisplayedMonth } from '../common/time.utils.js';
+import shmoment from '../common/shmoment.js';
 
 const navElem = document.querySelector('.navigation');
 const displayedMonthElem = document.querySelector(
@@ -33,6 +34,8 @@ const onChangeWeek = (event) => {
     return;
   }
 
+  const displayedWeekStartDate = getItem('displayedWeekStart');
+
   if (event.target.classList.contains('navigation__today-btn')) {
     setItem('displayedWeekStart', getStartOfWeek(new Date()));
   } else if (
@@ -41,23 +44,13 @@ const onChangeWeek = (event) => {
     setItem(
       'displayedWeekStart',
       getStartOfWeek(
-        new Date(
-          getItem('displayedWeekStart').setDate(
-            getItem('displayedWeekStart').getDate() - 7
-          )
-        )
+        shmoment(displayedWeekStartDate).subtract('days', 7).result()
       )
     );
   } else {
     setItem(
       'displayedWeekStart',
-      getStartOfWeek(
-        new Date(
-          getItem('displayedWeekStart').setDate(
-            getItem('displayedWeekStart').getDate() + 7
-          )
-        )
-      )
+      getStartOfWeek(shmoment(displayedWeekStartDate).add('days', 7).result())
     );
   }
 
